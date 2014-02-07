@@ -65,7 +65,7 @@ class Twitter extends LazyExtractor
         return isset($data['name']) ? $data['name'] : null;
     }
 
-    protected function firstNameNormalizer($data)
+    protected function firstNameNormalizer()
     {
         $fullName = $this->getField(self::FIELD_FULL_NAME);
         if ($fullName){
@@ -76,7 +76,7 @@ class Twitter extends LazyExtractor
         return null;
     }
 
-    protected function lastNameNormalizer($data)
+    protected function lastNameNormalizer()
     {
         $fullName = $this->getField(self::FIELD_FULL_NAME);
         if ($fullName){

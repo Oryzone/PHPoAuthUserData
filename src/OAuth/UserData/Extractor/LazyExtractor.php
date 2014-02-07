@@ -44,11 +44,10 @@ class LazyExtractor extends Extractor
      * @param array $normalizersMap
      * @param array $supports
      * @param array $fields
-     * @param array $extra
      */
-    public function __construct($loadersMap = array(), $normalizersMap = array(), $supports = array(), $fields = array(), $extra = array())
+    public function __construct($loadersMap = array(), $normalizersMap = array(), $supports = array(), $fields = array())
     {
-        parent::__construct($supports, $fields, $extra);
+        parent::__construct($supports, $fields);
 
         $this->loadersMap = $loadersMap;
         $this->normalizersMap = $normalizersMap;
