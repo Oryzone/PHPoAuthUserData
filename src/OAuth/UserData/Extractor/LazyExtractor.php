@@ -42,7 +42,7 @@ class LazyExtractor extends Extractor
      *
      * @param array $loadersMap
      * @param array $normalizersMap
-     * @param array $supports
+     * @param string[] $supports
      * @param array $fields
      */
     public function __construct($loadersMap = array(), $normalizersMap = array(), $supports = array(), $fields = array())
@@ -58,6 +58,7 @@ class LazyExtractor extends Extractor
 
     /**
      * {@inheritDoc}
+     * @param string $field
      */
     public function getField($field)
     {
@@ -111,7 +112,7 @@ class LazyExtractor extends Extractor
     /**
      * Get an array listing all fields names
      *
-     * @return array
+     * @return string[]
      */
     protected function getAllFields()
     {

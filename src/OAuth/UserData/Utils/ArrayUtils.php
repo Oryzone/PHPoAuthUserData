@@ -38,7 +38,7 @@ class ArrayUtils
      * This method does not modify the passed array but builds a new one.
      *
      * @param  array $array
-     * @param  array $keys
+     * @param  string[] $keys
      * @return array
      */
     public static function removeKeys($array, $keys)

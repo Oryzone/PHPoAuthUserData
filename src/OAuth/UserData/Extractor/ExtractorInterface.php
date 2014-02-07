@@ -35,6 +35,7 @@ interface ExtractorInterface
 
     /**
      * @param \OAuth\Common\Service\ServiceInterface $service
+     * @return void
      */
     public function setService($service);
 
