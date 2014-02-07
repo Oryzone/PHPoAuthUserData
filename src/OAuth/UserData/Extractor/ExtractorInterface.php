@@ -205,4 +205,4 @@ interface ExtractorInterface
      * @return array
      */
     public function getExtras();
-} 
+}

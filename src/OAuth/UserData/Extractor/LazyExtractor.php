@@ -61,7 +61,7 @@ class LazyExtractor extends Extractor
      */
     public function getField($field)
     {
-        if (!$this->isFieldSupported($field)){
+        if (!$this->isFieldSupported($field)) {
             return null;
         }
 

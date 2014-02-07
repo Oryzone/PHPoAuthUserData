@@ -68,8 +68,9 @@ class Twitter extends LazyExtractor
     protected function firstNameNormalizer()
     {
         $fullName = $this->getField(self::FIELD_FULL_NAME);
-        if ($fullName){
+        if ($fullName) {
             $names = explode(' ', $fullName);
+
             return $names[0];
         }
 
@@ -79,8 +80,9 @@ class Twitter extends LazyExtractor
     protected function lastNameNormalizer()
     {
         $fullName = $this->getField(self::FIELD_FULL_NAME);
-        if ($fullName){
+        if ($fullName) {
             $names = explode(' ', $fullName);
+
             return $names[sizeof($names) - 1];
         }
 
@@ -105,8 +107,8 @@ class Twitter extends LazyExtractor
     protected function websitesNormalizer($data)
     {
         $websites = array();
-        if (isset($data['entities']['url']['urls'])){
-            foreach($data['entities']['url']['urls'] as $urlData){
+        if (isset($data['entities']['url']['urls'])) {
+            foreach ($data['entities']['url']['urls'] as $urlData) {
                 $websites[] = $urlData['expanded_url'];
             }
         }

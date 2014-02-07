@@ -21,13 +21,14 @@ class StringUtils
     /**
      * Extract urls from a string
      *
-     * @param string $string
+     * @param  string $string
      * @return array
      */
     public static function extractUrls($string)
     {
         preg_match_all('#\bhttps?://[^\s()<>]+(?:\([\w\d]+\)|(?:[^[:punct:]\s]|/))#', $string, $match);
+
         return isset($match[0]) ? $match[0] : array();
     }
 
-} 
+}

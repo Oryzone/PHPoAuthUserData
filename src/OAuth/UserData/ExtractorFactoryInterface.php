@@ -15,8 +15,8 @@ namespace OAuth\UserData;
  * Interface ExtractorFactoryInterface
  * @package OAuth\UserData
  */
-interface ExtractorFactoryInterface {
-
+interface ExtractorFactoryInterface
+{
     /**
      * Get the extractor for a given service
      *

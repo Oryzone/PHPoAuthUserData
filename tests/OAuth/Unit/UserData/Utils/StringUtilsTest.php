@@ -2,7 +2,6 @@
 
 namespace OAuth\Unit\UserData\Utils;
 
-
 use OAuth\UserData\Utils\StringUtils;
 
 class StringUtilsTest extends \PHPUnit_Framework_TestCase
@@ -27,4 +26,3 @@ class StringUtilsTest extends \PHPUnit_Framework_TestCase
     }
 
 }
- 

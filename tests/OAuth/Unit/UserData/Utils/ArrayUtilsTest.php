@@ -2,7 +2,6 @@
 
 namespace OAuth\Unit\UserData\Utils;
 
-
 use OAuth\UserData\Utils\ArrayUtils;
 
 class ArrayUtilsTest extends \PHPUnit_Framework_TestCase
@@ -61,4 +60,3 @@ class ArrayUtilsTest extends \PHPUnit_Framework_TestCase
     }
 
 }
- 
