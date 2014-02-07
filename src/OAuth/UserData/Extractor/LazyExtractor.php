@@ -49,8 +49,7 @@ class LazyExtractor extends Extractor
         $loadersMap = array(),
         $normalizersMap = array(),
         $supports = array(),
-        $fields = array()
-    )
+        $fields = array() )
     {
         parent::__construct($supports, $fields);
 
@@ -182,5 +181,4 @@ class LazyExtractor extends Extractor
             self::FIELD_EXTRA           =>   self::FIELD_EXTRA,
         );
     }
-
 }

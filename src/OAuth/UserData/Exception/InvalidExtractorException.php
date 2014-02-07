@@ -49,5 +49,4 @@ class InvalidExtractorException extends \Exception implements Exception
     {
         return $this->extractorClass;
     }
-
 }

@@ -69,5 +69,4 @@ class UndefinedExtractorException extends \Exception implements Exception
     {
         return $this->registeredExtractors;
     }
-
 }

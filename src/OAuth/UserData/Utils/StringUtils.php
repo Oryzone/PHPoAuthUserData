@@ -30,5 +30,4 @@ class StringUtils
 
         return isset($match[0]) ? $match[0] : array();
     }
-
 }

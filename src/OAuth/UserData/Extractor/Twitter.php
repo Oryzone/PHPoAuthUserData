@@ -135,5 +135,4 @@ class Twitter extends LazyExtractor
             'profile_image_url',
         ));
     }
-
 }

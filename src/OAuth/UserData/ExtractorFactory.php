@@ -105,5 +105,4 @@ class ExtractorFactory implements ExtractorFactoryInterface
 
         return $extractor;
     }
-
 }
