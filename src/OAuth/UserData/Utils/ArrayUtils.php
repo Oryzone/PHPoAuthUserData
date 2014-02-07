@@ -37,7 +37,7 @@ class ArrayUtils
      * Utility method that allow to remove a list of keys from a given array.
      * This method does not modify the passed array but builds a new one.
      *
-     * @param  array $array
+     * @param  array    $array
      * @param  string[] $keys
      * @return array
      */

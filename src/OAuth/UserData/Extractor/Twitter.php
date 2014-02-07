@@ -19,6 +19,10 @@ use OAuth\UserData\Utils\ArrayUtils;
  */
 class Twitter extends LazyExtractor
 {
+    /**
+     * Request constants
+     */
+    const REQUEST_PROFILE = '/account/verify_credentials.json';
 
     /**
      * Constructor
@@ -47,7 +51,7 @@ class Twitter extends LazyExtractor
 
     protected function profileLoader()
     {
-        return ArrayUtils::objectToArray(json_decode($this->service->request('/account/verify_credentials.json')));
+        return ArrayUtils::objectToArray(json_decode($this->service->request(self::REQUEST_PROFILE)));
     }
 
     protected function uniqueIdNormalizer($data)

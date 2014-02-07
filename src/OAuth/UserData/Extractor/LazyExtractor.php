@@ -40,10 +40,10 @@ class LazyExtractor extends Extractor
     /**
      * Constructor
      *
-     * @param array $loadersMap
-     * @param array $normalizersMap
+     * @param array    $loadersMap
+     * @param array    $normalizersMap
      * @param string[] $supports
-     * @param array $fields
+     * @param array    $fields
      */
     public function __construct($loadersMap = array(), $normalizersMap = array(), $supports = array(), $fields = array())
     {
@@ -122,6 +122,7 @@ class LazyExtractor extends Extractor
             self::FIELD_FIRST_NAME,
             self::FIELD_LAST_NAME,
             self::FIELD_FULL_NAME,
+            self::FIELD_EMAIL,
             self::FIELD_DESCRIPTION,
             self::FIELD_LOCATION,
             self::FIELD_PROFILE_URL,
@@ -144,6 +145,7 @@ class LazyExtractor extends Extractor
             self::FIELD_FIRST_NAME      =>   'profile',
             self::FIELD_LAST_NAME       =>   'profile',
             self::FIELD_FULL_NAME       =>   'profile',
+            self::FIELD_EMAIL           =>   'profile',
             self::FIELD_DESCRIPTION     =>   'profile',
             self::FIELD_LOCATION        =>   'profile',
             self::FIELD_PROFILE_URL     =>   'profile',
@@ -166,6 +168,7 @@ class LazyExtractor extends Extractor
             self::FIELD_FIRST_NAME      =>   self::FIELD_FIRST_NAME,
             self::FIELD_LAST_NAME       =>   self::FIELD_LAST_NAME,
             self::FIELD_FULL_NAME       =>   self::FIELD_FULL_NAME,
+            self::FIELD_EMAIL           =>   self::FIELD_EMAIL,
             self::FIELD_DESCRIPTION     =>   self::FIELD_DESCRIPTION,
             self::FIELD_LOCATION        =>   self::FIELD_LOCATION,
             self::FIELD_PROFILE_URL     =>   self::FIELD_PROFILE_URL,

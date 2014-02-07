@@ -34,7 +34,7 @@ interface ExtractorInterface
     const FIELD_EXTRA = 'extra';
 
     /**
-     * @param \OAuth\Common\Service\ServiceInterface $service
+     * @param  \OAuth\Common\Service\ServiceInterface $service
      * @return void
      */
     public function setService($service);

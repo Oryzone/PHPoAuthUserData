@@ -22,6 +22,12 @@ class Facebook extends LazyExtractor
 {
 
     /**
+     * Request contants
+     */
+    const REQUEST_PROFILE = '/me';
+    const REQUEST_IMAGE = '/me/picture?type=large&redirect=false';
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -45,27 +51,12 @@ class Facebook extends LazyExtractor
 
     protected function profileLoader()
     {
-        return ArrayUtils::objectToArray(json_decode($this->service->request('/me')));
+        return ArrayUtils::objectToArray(json_decode($this->service->request(self::REQUEST_PROFILE)));
     }
 
     protected function imageLoader()
     {
-        $rawPicture = json_decode($this->service->request('/me/picture?type=large&redirect=false'));
-        if (isset($rawPicture->data) && isset($rawPicture->data->url)) {
-            return $rawPicture->data->url;
-        }
-
-        return null;
-    }
-
-    protected function loadProfile()
-    {
-        return ArrayUtils::objectToArray(json_decode($this->service->request('/me')));
-    }
-
-    protected function loadImageUrl()
-    {
-        $rawPicture = json_decode($this->service->request('/me/picture?type=large&redirect=false'));
+        $rawPicture = json_decode($this->service->request(self::REQUEST_IMAGE));
         if (isset($rawPicture->data) && isset($rawPicture->data->url)) {
             return $rawPicture->data->url;
         }
