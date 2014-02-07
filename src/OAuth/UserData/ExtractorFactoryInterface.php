@@ -11,6 +11,8 @@
 
 namespace OAuth\UserData;
 
+use OAuth\Common\Service\ServiceInterface;
+
 /**
  * Interface ExtractorFactoryInterface
  * @package OAuth\UserData
@@ -22,8 +24,8 @@ interface ExtractorFactoryInterface
      *
      * @param  \OAuth\Common\Service\ServiceInterface $service
      * @throws Exception\InvalidExtractorException    if the retrieved instance is not a valid Extractor (not implement ExtractorInterface)
-     * @throws Exception\UnmatchedExtractorException  if can't find an extractor associated to the given service
+     * @throws Exception\UndefinedExtractorException  if can't find an extractor associated to the given service
      * @return Extractor\ExtractorInterface
      */
-    public function get($service);
+    public function get(ServiceInterface $service);
 }

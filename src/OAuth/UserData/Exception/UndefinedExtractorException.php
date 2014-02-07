@@ -17,7 +17,7 @@ use OAuth\Common\Service\ServiceInterface;
  * Class UnmatchedExtractorException
  * @package OAuth\UserData\Exception
  */
-class UnmatchedExtractorException extends \Exception implements Exception
+class UndefinedExtractorException extends \Exception implements Exception
 {
     /**
      * @var \OAuth\Common\Service\ServiceInterface $service
@@ -34,12 +34,15 @@ class UnmatchedExtractorException extends \Exception implements Exception
      *
      * @param \OAuth\Common\Service\ServiceInterface $service
      * @param array                                  $registeredExtractors
+     * @param string|null                            $message
      */
-    public function __construct(ServiceInterface $service, $registeredExtractors = array())
+    public function __construct(ServiceInterface $service, $registeredExtractors = array(), $message = null)
     {
         $this->service = $service;
         $this->registeredExtractors = $registeredExtractors;
-        $message = sprintf('Cannot match an extractor for the service "%s". Registered extractors: %s', get_class($service), json_encode($registeredExtractors));
+        if (null === $message) {
+            $message = sprintf('Cannot find an extractor for the service "%s". Registered extractors: %s', get_class($service), json_encode($registeredExtractors));
+        }
         parent::__construct($message);
     }
 

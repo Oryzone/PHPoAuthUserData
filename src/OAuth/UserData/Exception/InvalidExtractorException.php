@@ -20,17 +20,20 @@ class InvalidExtractorException extends \Exception implements Exception
     /**
      * @var string $serviceName
      */
-    protected $serviceName;
+    protected $extractorClass;
 
     /**
      * Constructor
      *
-     * @param string $serviceName
+     * @param string      $extractorClass
+     * @param string|null $message
      */
-    public function __construct($serviceName)
+    public function __construct($extractorClass, $message = null)
     {
-        $this->serviceName = $serviceName;
-        $message = sprintf('The service "%s" is not associated to an object implementing OAuth\UserData\Extractor\ExtractorInterface', $serviceName);
+        $this->extractorClass = $extractorClass;
+        if (null === $message) {
+            $message = sprintf('The class "%s" does not implement the interface OAuth\UserData\Extractor\ExtractorInterface', $extractorClass);
+        }
         parent::__construct($message);
     }
 
@@ -39,9 +42,9 @@ class InvalidExtractorException extends \Exception implements Exception
      *
      * @return string
      */
-    public function getServiceName()
+    public function getExtractorClass()
     {
-        return $this->serviceName;
+        return $this->extractorClass;
     }
 
 }
