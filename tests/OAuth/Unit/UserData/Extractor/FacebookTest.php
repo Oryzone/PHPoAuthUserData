@@ -57,9 +57,6 @@ class FacebookTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->extractor = new Facebook();
-        /**
-         * @var \OAuth\Common\Service\ServiceInterface $service
-         */
         $service = $this->getMockBuilder('\\OAuth\\OAuth2\\Service\\Facebook')
             ->disableOriginalConstructor()
             ->getMock();
@@ -67,13 +64,16 @@ class FacebookTest extends \PHPUnit_Framework_TestCase
             ->method('request')
             ->will($this->returnCallback(function ($arg) {
                 if ($arg == Facebook::REQUEST_PROFILE) {
-                    return self::RESPONSE_PROFILE;
+                    return FacebookTest::RESPONSE_PROFILE;
                 } elseif ($arg == Facebook::REQUEST_IMAGE) {
-                    return self::RESPONSE_IMAGE;
+                    return FacebookTest::RESPONSE_IMAGE;
                 }
 
                 return null;
             }));
+        /**
+         * @var \OAuth\Common\Service\ServiceInterface $service
+         */
         $this->extractor->setService($service);
     }
 

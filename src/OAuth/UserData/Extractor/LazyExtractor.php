@@ -45,7 +45,12 @@ class LazyExtractor extends Extractor
      * @param string[] $supports
      * @param array    $fields
      */
-    public function __construct($loadersMap = array(), $normalizersMap = array(), $supports = array(), $fields = array())
+    public function __construct(
+        $loadersMap = array(),
+        $normalizersMap = array(),
+        $supports = array(),
+        $fields = array()
+    )
     {
         parent::__construct($supports, $fields);
 

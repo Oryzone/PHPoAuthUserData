@@ -41,7 +41,11 @@ class UndefinedExtractorException extends \Exception implements Exception
         $this->service = $service;
         $this->registeredExtractors = $registeredExtractors;
         if (null === $message) {
-            $message = sprintf('Cannot find an extractor for the service "%s". Registered extractors: %s', get_class($service), json_encode($registeredExtractors));
+            $message = sprintf(
+                'Cannot find an extractor for the service "%s". Registered extractors: %s',
+                get_class($service),
+                json_encode($registeredExtractors)
+            );
         }
         parent::__construct($message);
     }

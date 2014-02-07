@@ -32,7 +32,10 @@ class InvalidExtractorException extends \Exception implements Exception
     {
         $this->extractorClass = $extractorClass;
         if (null === $message) {
-            $message = sprintf('The class "%s" does not implement the interface OAuth\UserData\Extractor\ExtractorInterface', $extractorClass);
+            $message = sprintf(
+                'The class "%s" does not implement the interface OAuth\UserData\Extractor\ExtractorInterface',
+                $extractorClass
+            );
         }
         parent::__construct($message);
     }
