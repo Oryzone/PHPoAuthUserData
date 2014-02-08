@@ -193,6 +193,13 @@ interface ExtractorInterface
     public function getWebsites();
 
     /**
+     * Check if the current provider supports extra data
+     *
+     * @return bool
+     */
+    public function supportsExtra();
+
+    /**
      * Get an extra attribute
      *
      * @param  string $key

@@ -50,7 +50,7 @@ class LazyExtractor extends Extractor
         $normalizersMap = array(),
         $supports = array(),
         $fields = array()
-    ){
+    ) {
         parent::__construct($supports, $fields);
 
         $this->loadersMap = $loadersMap;
@@ -111,29 +111,6 @@ class LazyExtractor extends Extractor
         }
 
         return $this->loadersResults[$loaderName];
-    }
-
-    /**
-     * Get an array listing all fields names
-     *
-     * @return string[]
-     */
-    protected function getAllFields()
-    {
-        return array(
-            self::FIELD_UNIQUE_ID,
-            self::FIELD_USERNAME,
-            self::FIELD_FIRST_NAME,
-            self::FIELD_LAST_NAME,
-            self::FIELD_FULL_NAME,
-            self::FIELD_EMAIL,
-            self::FIELD_DESCRIPTION,
-            self::FIELD_LOCATION,
-            self::FIELD_PROFILE_URL,
-            self::FIELD_IMAGE_URL,
-            self::FIELD_WEBSITES,
-            self::FIELD_EXTRA
-        );
     }
 
     /**

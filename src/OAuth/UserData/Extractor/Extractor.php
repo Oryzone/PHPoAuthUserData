@@ -225,6 +225,14 @@ class Extractor implements ExtractorInterface
     /**
      * {@inheritDoc}
      */
+    public function supportsExtra()
+    {
+        return $this->isFieldSupported(self::FIELD_EXTRA);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getExtra($key)
     {
         $extras = $this->getExtras();
@@ -272,5 +280,28 @@ class Extractor implements ExtractorInterface
     protected function isFieldSupported($field)
     {
         return in_array($field, $this->supports);
+    }
+
+    /**
+     * Get an array listing all fields names
+     *
+     * @return string[]
+     */
+    protected function getAllFields()
+    {
+        return array(
+            self::FIELD_UNIQUE_ID,
+            self::FIELD_USERNAME,
+            self::FIELD_FIRST_NAME,
+            self::FIELD_LAST_NAME,
+            self::FIELD_FULL_NAME,
+            self::FIELD_EMAIL,
+            self::FIELD_DESCRIPTION,
+            self::FIELD_LOCATION,
+            self::FIELD_PROFILE_URL,
+            self::FIELD_IMAGE_URL,
+            self::FIELD_WEBSITES,
+            self::FIELD_EXTRA
+        );
     }
 }
