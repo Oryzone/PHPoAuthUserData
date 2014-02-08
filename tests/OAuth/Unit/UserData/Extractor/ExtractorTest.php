@@ -102,8 +102,7 @@ class ExtractorTest extends \PHPUnit_Framework_TestCase
 
     public function testSupportsFields()
     {
-        foreach($this->fields as $field)
-        {
+        foreach ($this->fields as $field) {
             $supports = array($field);
             $value = $this->fieldValues[$field];
             $fields = array($field => $value);
@@ -121,8 +120,7 @@ class ExtractorTest extends \PHPUnit_Framework_TestCase
     {
         $supports = array();
         $fields = array();
-        foreach($this->fields as $field)
-        {
+        foreach ($this->fields as $field) {
             $extractor = new Extractor($supports, $fields);
             $supportFunction = $this->fieldSupportFunctions[$field];
             $getFunction = $this->fieldGetFunctions[$field];
