@@ -99,19 +99,19 @@ More to come (obviously)! Want to [contribute](#how-to-contribute)?
 The library leverages around the concept of *extractors*. An extractor is a specific implementation of the logic to
 retrieve data for a given OAuth provider.
 
-Each extractors can retrieve the following user data field:
+Each extractor can retrieve the following user data fields:
 
-- uniqueId
-- username
-- firstName
-- lastName
-- fullName
-- email
-- location
-- description
-- imageUrl
-- profileUrl
-- websites (array)
+- *uniqueId*
+- *username*
+- *firstName*
+- *lastName*
+- *fullName*
+- *email*
+- *location*
+- *description*
+- *imageUrl*
+- *profileUrl*
+- *websites* (array)
 
 For each field you have convenience methods to get the value of the field or to check if it is supported by the given
 provider:
@@ -149,7 +149,7 @@ methods:
 - `getExtra($key)`
 - `getExtras()`
 
-You can have a look at the [ExtractorInterface](src/OAuth/UserData/Extractor/ExtractorInterface) *docblocks* if you want
+You can have a look at the [ExtractorInterface](src/OAuth/UserData/Extractor/ExtractorInterface.php) *docblocks* if you want
 a better understanding of what every method does.
 
 ## Examples
