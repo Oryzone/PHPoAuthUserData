@@ -93,7 +93,7 @@ class LazyExtractor extends Extractor
      * Get data from a loader.
      * A loader is a function who is delegated to fetch a request to get the raw data
      *
-     * @param $field
+     * @param  string $field
      * @return mixed
      */
     protected function getLoaderData($field)
