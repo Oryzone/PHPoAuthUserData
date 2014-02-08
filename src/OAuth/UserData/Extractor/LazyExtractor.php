@@ -33,11 +33,6 @@ class LazyExtractor extends Extractor
     protected $loadersResults;
 
     /**
-     * @var array $loadedFields
-     */
-    protected $loadedFields;
-
-    /**
      * Constructor
      *
      * @param array    $loadersMap
@@ -57,7 +52,6 @@ class LazyExtractor extends Extractor
         $this->normalizersMap = $normalizersMap;
 
         $this->loadersResults = array();
-        $this->loadedFields = array();
     }
 
     /**
@@ -92,7 +86,7 @@ class LazyExtractor extends Extractor
      */
     protected function hasLoadedField($field)
     {
-        return isset($this->loadedFields[$field]);
+        return array_key_exists($field, $this->fields);
     }
 
     /**
