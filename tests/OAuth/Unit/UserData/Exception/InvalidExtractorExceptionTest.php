@@ -1,5 +1,6 @@
 <?php
-namespace OAuth\UserData\Exception;
+
+namespace OAuth\Unit\UserData\Exception;
 
 use OAuth\UserData\Exception\InvalidExtractorException;
 

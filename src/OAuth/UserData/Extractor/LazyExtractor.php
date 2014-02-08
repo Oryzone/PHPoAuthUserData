@@ -49,8 +49,8 @@ class LazyExtractor extends Extractor
         $loadersMap = array(),
         $normalizersMap = array(),
         $supports = array(),
-        $fields = array() )
-    {
+        $fields = array()
+    ){
         parent::__construct($supports, $fields);
 
         $this->loadersMap = $loadersMap;

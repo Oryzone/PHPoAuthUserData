@@ -112,16 +112,24 @@ class Twitter extends LazyExtractor
         return isset($data['profile_image_url']) ? $data['profile_image_url'] : null;
     }
 
+    protected function profileUrlNormalizer($data)
+    {
+        return isset($data['screen_name']) ? sprintf('https://twitter.com/%s', $data['screen_name']) : null;
+    }
+
     protected function websitesNormalizer($data)
     {
         $websites = array();
+        if (isset($data['url'])) {
+            $websites[] = $data['url'];
+        }
         if (isset($data['entities']['url']['urls'])) {
             foreach ($data['entities']['url']['urls'] as $urlData) {
                 $websites[] = $urlData['expanded_url'];
             }
         }
 
-        return $websites;
+        return array_unique($websites);
     }
 
     protected function extraNormalizer($data)
@@ -132,6 +140,7 @@ class Twitter extends LazyExtractor
             'name',
             'description',
             'location',
+            'url',
             'profile_image_url',
         ));
     }
