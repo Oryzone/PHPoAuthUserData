@@ -31,7 +31,7 @@ interface ExtractorInterface
     const FIELD_IMAGE_URL = 'imageUrl';
     const FIELD_PROFILE_URL = 'profileUrl';
     const FIELD_WEBSITES = 'websites';
-    const FIELD_VERIFIED = 'verified';
+    const FIELD_VERIFIED_EMAIL = 'verifiedEmail';
     const FIELD_EXTRA = 'extra';
 
     /**
@@ -198,14 +198,14 @@ interface ExtractorInterface
      *
      * @return bool
      */
-    public function supportsVerified();
+    public function supportsVerifiedEmail();
 
     /**
      * Get the verified
      *
      * @return bool
      */
-    public function getVerified();
+    public function isEmailVerified();
 
     /**
      * Check if the current provider supports extra data

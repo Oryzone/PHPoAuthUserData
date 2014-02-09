@@ -114,9 +114,9 @@ class Facebook extends LazyExtractor
         return isset($data['website']) ? StringUtils::extractUrls($data['website']) : array();
     }
 
-    public function verifiedNormalizer($data)
+    public function verifiedEmailNormalizer()
     {
-        return isset($data['verified']) ? $data['verified'] : null;
+        return true; // Facebook users who have access to Open Graph and OAuth always have a verified email
     }
 
     protected function extraNormalizer($data)
@@ -132,7 +132,6 @@ class Facebook extends LazyExtractor
             'link',
             'location',
             'website',
-            'verified'
         ));
     }
 }

@@ -225,17 +225,17 @@ class Extractor implements ExtractorInterface
     /**
      * {@inheritDoc}
      */
-    public function supportsVerified()
+    public function supportsVerifiedEmail()
     {
-        return $this->isFieldSupported(self::FIELD_VERIFIED);
+        return $this->isFieldSupported(self::FIELD_VERIFIED_EMAIL);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getVerified()
+    public function isEmailVerified()
     {
-        return $this->getField(self::FIELD_VERIFIED);
+        return $this->getField(self::FIELD_VERIFIED_EMAIL);
     }
 
     /**
@@ -317,7 +317,7 @@ class Extractor implements ExtractorInterface
             self::FIELD_PROFILE_URL,
             self::FIELD_IMAGE_URL,
             self::FIELD_WEBSITES,
-            self::FIELD_VERIFIED,
+            self::FIELD_VERIFIED_EMAIL,
             self::FIELD_EXTRA
         );
     }

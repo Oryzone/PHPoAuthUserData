@@ -113,7 +113,7 @@ Each extractor can retrieve the following user data fields:
 - *imageUrl* (string)
 - *profileUrl* (string)
 - *websites* (array)
-- *verified* (bool)
+- *verifiedEmail* (bool)
 
 For each field you have convenience methods to get the value of the field or to check if it is supported by the given
 provider:
@@ -140,8 +140,8 @@ provider:
 - `getProfileUrl()`
 - `supportsWebsites()`
 - `getWebsites()`
-- `supportsVerified()`
-- `getVerified()`
+- `supportsVerifiedEmail()`
+- `isEmailVerified()`
 
 If you try to get a field that is not supported or it has not been set by the user on its profile you will get a `null`
 value.

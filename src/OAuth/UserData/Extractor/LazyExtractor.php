@@ -126,7 +126,7 @@ class LazyExtractor extends Extractor
             self::FIELD_PROFILE_URL     =>   'profile',
             self::FIELD_IMAGE_URL       =>   'profile',
             self::FIELD_WEBSITES        =>   'profile',
-            self::FIELD_VERIFIED        =>   'profile',
+            self::FIELD_VERIFIED_EMAIL  =>   'profile',
             self::FIELD_EXTRA           =>   'profile',
         );
     }
@@ -150,7 +150,7 @@ class LazyExtractor extends Extractor
             self::FIELD_PROFILE_URL     =>   self::FIELD_PROFILE_URL,
             self::FIELD_IMAGE_URL       =>   self::FIELD_IMAGE_URL,
             self::FIELD_WEBSITES        =>   self::FIELD_WEBSITES,
-            self::FIELD_VERIFIED        =>   self::FIELD_VERIFIED,
+            self::FIELD_VERIFIED_EMAIL  =>   self::FIELD_VERIFIED_EMAIL,
             self::FIELD_EXTRA           =>   self::FIELD_EXTRA,
         );
     }

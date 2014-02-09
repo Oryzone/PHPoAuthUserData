@@ -79,12 +79,6 @@ class LinkedinTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->extractor->getUsername());
     }
 
-    public function testDoesNotSupportVerified()
-    {
-        $this->assertFalse($this->extractor->supportsVerified());
-        $this->assertNull($this->extractor->getVerified());
-    }
-
     public function testGetUniqueId()
     {
         $this->assertEquals('ABCDEFGH', $this->extractor->getUniqueId());
@@ -137,6 +131,11 @@ class LinkedinTest extends \PHPUnit_Framework_TestCase
             'http://blog.johnnydonny.com'
         );
         $this->assertEquals($expected, $this->extractor->getWebsites());
+    }
+
+    public function testIsEmailVerified()
+    {
+        $this->assertTrue($this->extractor->isEmailVerified());
     }
 
     public function testGetExtras()

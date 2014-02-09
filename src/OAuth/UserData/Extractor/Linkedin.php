@@ -68,6 +68,7 @@ class Linkedin extends LazyExtractor
             self::FIELD_PROFILE_URL,
             self::FIELD_IMAGE_URL,
             self::FIELD_WEBSITES,
+            self::FIELD_VERIFIED_EMAIL,
             self::FIELD_EXTRA
         );
     }
@@ -134,6 +135,11 @@ class Linkedin extends LazyExtractor
         }
 
         return $websites;
+    }
+
+    public function verifiedEmailNormalizer()
+    {
+        return true; // Linkedin users who have access to OAuth v2 always have a verified email
     }
 
     protected function extraNormalizer($data)

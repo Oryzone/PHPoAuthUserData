@@ -144,9 +144,9 @@ class FacebookTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('https://fbcdn-profile-a.akamaihd.net/something_n.jpg', $this->extractor->getImageUrl());
     }
 
-    public function testGetVerified()
+    public function testIsEmailVerified()
     {
-        $this->assertTrue($this->extractor->getVerified());
+        $this->assertTrue($this->extractor->isEmailVerified());
     }
 
     public function testGetExtra()
