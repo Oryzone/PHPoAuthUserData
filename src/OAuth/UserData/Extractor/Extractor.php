@@ -287,7 +287,7 @@ class Extractor implements ExtractorInterface
      *
      * @return string[]
      */
-    protected function getAllFields()
+    protected static function getAllFields()
     {
         return array(
             self::FIELD_UNIQUE_ID,

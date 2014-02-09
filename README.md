@@ -91,6 +91,7 @@ Currently there are extractors for the following providers:
 
 - Facebook
 - Twitter
+- Linkedin
 
 More to come (obviously)! Want to [contribute](#how-to-contribute)?
 
@@ -151,6 +152,8 @@ methods:
 
 You can have a look at the [ExtractorInterface](src/OAuth/UserData/Extractor/ExtractorInterface.php) *docblocks* if you want
 a better understanding of what every method does.
+
+**NOTE**: In many providers some user data fields are available only if you set the proper scopes/settings for your OAuth app.
 
 ## Examples
 

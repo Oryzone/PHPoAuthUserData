@@ -112,7 +112,7 @@ class LazyExtractor extends Extractor
      *
      * @return array
      */
-    protected function getDefaultLoadersMap()
+    protected static function getDefaultLoadersMap()
     {
         return array(
             self::FIELD_UNIQUE_ID       =>   'profile',
@@ -135,7 +135,7 @@ class LazyExtractor extends Extractor
      *
      * @return array
      */
-    protected function getDefaultNormalizersMap()
+    protected static function getDefaultNormalizersMap()
     {
         return array(
             self::FIELD_UNIQUE_ID       =>   self::FIELD_UNIQUE_ID,

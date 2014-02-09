@@ -32,19 +32,19 @@ class Facebook extends LazyExtractor
      */
     public function __construct()
     {
-        parent::__construct($this->getLoadersMap(), $this->getNormalizersMap(), $this->getAllFields());
+        parent::__construct(self::getLoadersMap(), self::getNormalizersMap(), self::getAllFields());
     }
 
-    protected function getLoadersMap()
+    protected static function getLoadersMap()
     {
-        return array_merge($this->getDefaultLoadersMap(), array(
+        return array_merge(self::getDefaultLoadersMap(), array(
             self::FIELD_IMAGE_URL => 'image',
         ));
     }
 
-    public function getNormalizersMap()
+    public static function getNormalizersMap()
     {
-        return array_merge($this->getDefaultNormalizersMap(), array(
+        return array_merge(self::getDefaultNormalizersMap(), array(
             self::FIELD_IMAGE_URL => null,
         ));
     }

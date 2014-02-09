@@ -30,13 +30,13 @@ class Twitter extends LazyExtractor
     public function __construct()
     {
         parent::__construct(
-            $this->getDefaultLoadersMap(),
-            $this->getDefaultNormalizersMap(),
-            $this->getSupportedFields()
+            self::getDefaultLoadersMap(),
+            self::getDefaultNormalizersMap(),
+            self::getSupportedFields()
         );
     }
 
-    protected function getSupportedFields()
+    protected static function getSupportedFields()
     {
         return array(
             self::FIELD_UNIQUE_ID,
