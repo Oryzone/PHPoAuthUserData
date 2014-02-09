@@ -51,14 +51,14 @@ class Facebook extends LazyExtractor
 
     protected function profileLoader()
     {
-        return ArrayUtils::objectToArray(json_decode($this->service->request(self::REQUEST_PROFILE)));
+        return json_decode($this->service->request(self::REQUEST_PROFILE), true);
     }
 
     protected function imageLoader()
     {
-        $rawPicture = json_decode($this->service->request(self::REQUEST_IMAGE));
-        if (isset($rawPicture->data) && isset($rawPicture->data->url)) {
-            return $rawPicture->data->url;
+        $rawPicture = json_decode($this->service->request(self::REQUEST_IMAGE), true);
+        if (isset($rawPicture['data'], $rawPicture['data']['url'])) {
+            return $rawPicture['data']['url'];
         }
 
         return null;

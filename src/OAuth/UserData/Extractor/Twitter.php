@@ -55,7 +55,7 @@ class Twitter extends LazyExtractor
 
     protected function profileLoader()
     {
-        return ArrayUtils::objectToArray(json_decode($this->service->request(self::REQUEST_PROFILE)));
+        return json_decode($this->service->request(self::REQUEST_PROFILE), true);
     }
 
     protected function uniqueIdNormalizer($data)

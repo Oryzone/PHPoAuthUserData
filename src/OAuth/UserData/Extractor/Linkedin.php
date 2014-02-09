@@ -74,7 +74,7 @@ class Linkedin extends LazyExtractor
 
     protected function profileLoader()
     {
-        return ArrayUtils::objectToArray(json_decode($this->service->request(self::createProfileRequestUrl())));
+        return json_decode($this->service->request(self::createProfileRequestUrl()), true);
     }
 
     protected function uniqueIdNormalizer($data)
