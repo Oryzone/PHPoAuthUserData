@@ -225,6 +225,22 @@ class Extractor implements ExtractorInterface
     /**
      * {@inheritDoc}
      */
+    public function supportsVerified()
+    {
+        return $this->isFieldSupported(self::FIELD_VERIFIED);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getVerified()
+    {
+        return $this->getField(self::FIELD_VERIFIED);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function supportsExtra()
     {
         return $this->isFieldSupported(self::FIELD_EXTRA);
@@ -301,6 +317,7 @@ class Extractor implements ExtractorInterface
             self::FIELD_PROFILE_URL,
             self::FIELD_IMAGE_URL,
             self::FIELD_WEBSITES,
+            self::FIELD_VERIFIED,
             self::FIELD_EXTRA
         );
     }

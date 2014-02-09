@@ -114,6 +114,11 @@ class Facebook extends LazyExtractor
         return isset($data['website']) ? StringUtils::extractUrls($data['website']) : array();
     }
 
+    public function verifiedNormalizer($data)
+    {
+        return isset($data['verified']) ? $data['verified'] : null;
+    }
+
     protected function extraNormalizer($data)
     {
         return ArrayUtils::removeKeys($data, array(
@@ -126,7 +131,8 @@ class Facebook extends LazyExtractor
             'bio',
             'link',
             'location',
-            'website'
+            'website',
+            'verified'
         ));
     }
 }

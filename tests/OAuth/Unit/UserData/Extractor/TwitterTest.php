@@ -177,6 +177,11 @@ class TwitterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($websites, $this->extractor->getWebsites());
     }
 
+    public function testGetVerified()
+    {
+        $this->assertFalse($this->extractor->getVerified());
+    }
+
     public function testGetExtra()
     {
         $extra = $this->extractor->getExtras();
@@ -188,5 +193,6 @@ class TwitterTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayNotHasKey('name', $extra);
         $this->assertArrayNotHasKey('id', $extra);
         $this->assertArrayNotHasKey('description', $extra);
+        $this->assertArrayNotHasKey('verified', $extra);
     }
 }

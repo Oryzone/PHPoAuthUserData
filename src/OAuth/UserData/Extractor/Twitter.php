@@ -49,6 +49,7 @@ class Twitter extends LazyExtractor
             self::FIELD_PROFILE_URL,
             self::FIELD_IMAGE_URL,
             self::FIELD_WEBSITES,
+            self::FIELD_VERIFIED,
             self::FIELD_EXTRA
         );
     }
@@ -132,6 +133,11 @@ class Twitter extends LazyExtractor
         return array_unique($websites);
     }
 
+    public function verifiedNormalizer($data)
+    {
+        return isset($data['verified']) ? $data['verified'] : null;
+    }
+
     protected function extraNormalizer($data)
     {
         return ArrayUtils::removeKeys($data, array(
@@ -142,6 +148,7 @@ class Twitter extends LazyExtractor
             'location',
             'url',
             'profile_image_url',
+            'verified'
         ));
     }
 }

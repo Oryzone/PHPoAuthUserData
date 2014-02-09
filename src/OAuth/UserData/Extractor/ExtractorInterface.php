@@ -31,6 +31,7 @@ interface ExtractorInterface
     const FIELD_IMAGE_URL = 'imageUrl';
     const FIELD_PROFILE_URL = 'profileUrl';
     const FIELD_WEBSITES = 'websites';
+    const FIELD_VERIFIED = 'verified';
     const FIELD_EXTRA = 'extra';
 
     /**
@@ -191,6 +192,20 @@ interface ExtractorInterface
      * @return array
      */
     public function getWebsites();
+
+    /**
+     * Check if the current provider supports the "verified" field
+     *
+     * @return bool
+     */
+    public function supportsVerified();
+
+    /**
+     * Get the verified
+     *
+     * @return bool
+     */
+    public function getVerified();
 
     /**
      * Check if the current provider supports extra data

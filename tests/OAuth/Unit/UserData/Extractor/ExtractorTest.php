@@ -37,6 +37,7 @@ class ExtractorTest extends \PHPUnit_Framework_TestCase
             ExtractorInterface::FIELD_PROFILE_URL,
             ExtractorInterface::FIELD_IMAGE_URL,
             ExtractorInterface::FIELD_WEBSITES,
+            ExtractorInterface::FIELD_VERIFIED,
             ExtractorInterface::FIELD_EXTRA
         );
 
@@ -52,6 +53,7 @@ class ExtractorTest extends \PHPUnit_Framework_TestCase
             ExtractorInterface::FIELD_PROFILE_URL   => 'supportsProfileUrl',
             ExtractorInterface::FIELD_IMAGE_URL     => 'supportsImageUrl',
             ExtractorInterface::FIELD_WEBSITES      => 'supportsWebsites',
+            ExtractorInterface::FIELD_VERIFIED      => 'supportsVerified',
             ExtractorInterface::FIELD_EXTRA         => 'supportsExtra',
         );
 
@@ -67,6 +69,7 @@ class ExtractorTest extends \PHPUnit_Framework_TestCase
             ExtractorInterface::FIELD_PROFILE_URL   => 'getProfileUrl',
             ExtractorInterface::FIELD_IMAGE_URL     => 'getImageUrl',
             ExtractorInterface::FIELD_WEBSITES      => 'getWebsites',
+            ExtractorInterface::FIELD_VERIFIED      => 'getVerified',
             ExtractorInterface::FIELD_EXTRA         => 'getExtras',
         );
 
@@ -85,6 +88,7 @@ class ExtractorTest extends \PHPUnit_Framework_TestCase
                 'http://johnnydonny.com',
                 'http://blog.johnnydonny.com',
             ),
+            ExtractorInterface::FIELD_VERIFIED      => true,
             ExtractorInterface::FIELD_EXTRA         => array(
                 'foo' => 'bar',
                 'skills' => array('php', 'symfony', 'butterflies')
