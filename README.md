@@ -162,7 +162,7 @@ a better understanding of what every method does.
 
 ## Examples
 
-TODO
+Examples are available in the [examples](examples) directory.
 
 ## How to contribute
 
@@ -219,8 +219,8 @@ public function __construct()
 
 ### A small example
 
-I hope to have time to write a dedicated blog post to present a small example that explains, step by step, how to write a new extractor.
-In the meanwhile you can have a look at the [currently existing extractors](src/OAuth/UserData/Extractor/).
+I wrote [a dedicated blog post](http://loige.com/writing-a-new-extractor-for-php-oauth-user-data/) to present a small example that explains,
+step by step, how to write a new extractor.
 
 ## Contributors
 
