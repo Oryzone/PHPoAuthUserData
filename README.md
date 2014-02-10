@@ -164,7 +164,61 @@ TODO
 
 ## How to contribute
 
-TODO
+This project need a lot of work and Github is the perfect place to share the burden. So everyone is welcome to help and
+submit a pull request.
+
+Keep in mind that the submitted code should be conform to [PSR-2 standard](http://www.php-fig.org/psr/psr-2/) and be
+tested with [PHPUnit](http://phpunit.de/).
+
+Probably you want to contribute by submitting a new Extractor. So let shed some light on some concepts involved in writing a new one.
+
+### Writing an Extractor
+
+Extractors defines the logic to request information to a given service API and to normalize the received data according
+to a common [interface](src/OAuth/UserData/Extractor/ExtractorInterface.php).
+The most basic way to define an extractor is to write a class that implements the [ExtractorInterface](src/OAuth/UserData/Extractor/ExtractorInterface.php)
+(that is pretty self-explanatory). You could extend the class [Extractor](src/OAuth/UserData/Extractor/Extractor.php) that implements most of the needed code to get you started.
+Anyway, extractors should **really** extend the class [LazyExtractor](src/OAuth/UserData/Extractor/LazyExtractor.php) where possible
+because it acts as a boilerplate to define highly optimized extractors. This class easily allows you to implement extractors
+that **lazy loads** data (perform requests only when needed to) and **caches** data (does not make the same request more than once and avoids
+normalizing the same data more than once). Everything is done behind the scenes, so you'll need to focus only on methods that define how to make
+requests and how to normalize data.
+
+To understand how to write a new extractor by adopting the [LazyExtractor](src/OAuth/UserData/Extractor/LazyExtractor.php) we need to clarify
+some concepts:
+
+  - **Supported fields**: an array of the fields (you should use field constants from the [ExtractorInterface](src/OAuth/UserData/Extractor/ExtractorInterface.php)) that can be extracted.
+  - **Loaders**: methods whose responsibility is to trigger the proper request to the OAuth provider endpoint to load a specific set of raw data. Generally
+you need to define a loader for each block of information that could be retrieved from the endpoint. this methods must have the suffix `Loader` in their name.
+Most of the service will allow you to retrieve all the user data with a single request, so, in this cases, you would have only a single loader method (eg: `profileLoader`).
+  - **Normalizers**: methods that accept raw data (the one previously fetched by some loader method) and uses it to extract the value for a given field.
+Usually you have a normalizer for each supported field. Normalizers methods must have the suffix `Normalizer` (eg. `uniqueIdNormalizer` or `descriptionNormalizer`).
+  - **LoadersMap**: an array that associates supported fields (keys) to loaders methods (values). Loaders methods must be referenced without the `Loader` suffix.
+Most of the time, if you have only the `profileLoader` loader you will have an array with all fields mapping to the string `profile`.
+  - **NormalizersMap**: an array that associates supported fields (keys) to the related normalizer methods (values). Normalizers methods must be
+referenced without the `Normalizer` suffix. It's highly suggested to use the same name of the field for its related normalizer, so, most of the time,
+you will end up by having an array that maps field constants to the same field constant (eg. `array(self::FIELD_UNIQUE_ID => self::FIELD_UNIQUE_ID)`) for
+every supported field.
+
+Once you defined *Supported Fields*, *Loaders*, *Normalizers*, *Loaders Map* and *Normalizers Map* from within your new extractor class you must
+wire them to the underlying logic by passing them to the parent constructor. So if you defined methods such as `getSupportedField`, `getLoadersMap` and `getNormalizersMap`
+you will end up with a constructor like this:
+
+```php
+public function __construct()
+{
+    parent::__construct(
+        self::getLoadersMap(),
+        self::getNormalizersMap(),
+        self::getSupportedFields()
+    );
+}
+```
+
+### A small example
+
+I hope to have time to write a dedicated blog post to present a small example that explains, step by step, how to write a new extractor.
+In the meanwhile you can have a look at the [currently existing extractors](src/OAuth/UserData/Extractor/).
 
 ## Contributors
 
