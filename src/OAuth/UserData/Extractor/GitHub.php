@@ -40,9 +40,9 @@ class GitHub extends LazyExtractor
     {
         return json_decode(
             $this->service->request(
-                self::REQUEST_EMAIL, 
-                'GET', 
-                array(), 
+                self::REQUEST_EMAIL,
+                'GET',
+                array(),
                 array('Accept' => 'application/vnd.github.v3')
             ),
             true
