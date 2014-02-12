@@ -211,6 +211,9 @@ class GitHubTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayNotHasKey('html_url', $extra);
     }
 
+    /**
+     * @return \OAuth\Common\Service\ServiceInterface
+     */
     private function getEmailTestMock($returnValue)
     {
         $service = $this->getMockBuilder('\\OAuth\\OAuth2\\Service\\GitHub')
