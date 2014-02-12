@@ -91,6 +91,7 @@ $ php composer.phar install
 Currently there are extractors for the following providers:
 
 - Facebook
+- GitHub (Thanks to @cmfcmf)
 - Instagram
 - Linkedin
 - Twitter
