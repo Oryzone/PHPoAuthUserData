@@ -38,7 +38,15 @@ class GitHub extends LazyExtractor
 
     protected function emailLoader()
     {
-        return json_decode($this->service->request(self::REQUEST_EMAIL, 'GET', array(), array('Accept' => 'application/vnd.github.v3')), true);
+        return json_decode(
+            $this->service->request(
+                self::REQUEST_EMAIL, 
+                'GET', 
+                array(), 
+                array('Accept' => 'application/vnd.github.v3')
+            ),
+            true
+        );
     }
 
     protected static function getSupportedFields()
