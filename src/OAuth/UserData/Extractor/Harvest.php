@@ -43,6 +43,7 @@ class Harvest extends LazyExtractor
             self::FIELD_USERNAME,
             self::FIELD_FIRST_NAME,
             self::FIELD_LAST_NAME,
+            self::FIELD_FULL_NAME,
             self::FIELD_IMAGE_URL,
             self::FIELD_EMAIL,
             self::FIELD_EXTRA
