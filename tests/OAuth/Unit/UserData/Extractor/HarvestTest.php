@@ -23,7 +23,7 @@ class HarvestTest extends \PHPUnit_Framework_TestCase
 }';
 
     /**
-     * @var Facebook
+     * @var Harvest
      */
     protected $extractor;
 
