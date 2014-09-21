@@ -21,7 +21,7 @@
         "phpunit/phpunit": "~3.7"
     },
     "autoload": {
-        "psr-4": { 
+        "psr-4": {
         	"OAuth\\UserData\\": "src/OAuth/UserData/",
         	"OAuth\\UserData\\Unit\\": "tests/OAuth/Unit/UserData/"
         }
