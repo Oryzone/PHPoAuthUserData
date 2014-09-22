@@ -92,6 +92,7 @@ Currently there are extractors for the following providers:
 
 - Facebook
 - GitHub (Thanks to @cmfcmf)
+- Harvest (Thanks to @mneuhaus)
 - Instagram
 - Linkedin
 - Twitter
