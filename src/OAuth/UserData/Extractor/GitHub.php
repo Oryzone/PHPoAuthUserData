@@ -12,12 +12,13 @@
 namespace OAuth\UserData\Extractor;
 
 use OAuth\UserData\Utils\ArrayUtils;
+use OAuth\OAuth2\Service\GitHub as GitHubService;
 
 /**
  * Class GitHub
  * @package OAuth\UserData\Extractor
  */
-class GitHub extends LazyExtractor
+class GitHub extends ScopeAwareLazyExtractor
 {
     const REQUEST_PROFILE = '/user';
     const REQUEST_EMAIL = '/user/emails';
@@ -73,6 +74,24 @@ class GitHub extends LazyExtractor
             self::FIELD_EMAIL          => 'email',
             self::FIELD_VERIFIED_EMAIL => 'email'
         ));
+    }
+
+    public static function getFieldScopesMap()
+    {
+        return array(
+            self::FIELD_UNIQUE_ID      => null,
+            self::FIELD_USERNAME       => null,
+            self::FIELD_FIRST_NAME     => null,
+            self::FIELD_LAST_NAME      => null,
+            self::FIELD_FULL_NAME      => null,
+            self::FIELD_EMAIL          => GitHubService::SCOPE_USER_EMAIL,
+            self::FIELD_LOCATION       => null,
+            self::FIELD_DESCRIPTION    => null,
+            self::FIELD_IMAGE_URL      => null,
+            self::FIELD_PROFILE_URL    => null,
+            self::FIELD_VERIFIED_EMAIL => GitHubService::SCOPE_USER_EMAIL,
+            self::FIELD_EXTRA          => null
+        );
     }
 
     protected function uniqueIdNormalizer($data)

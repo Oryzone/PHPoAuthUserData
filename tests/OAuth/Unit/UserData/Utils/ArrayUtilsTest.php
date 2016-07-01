@@ -58,4 +58,35 @@ class ArrayUtilsTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    public function testExtractMappedValues()
+    {
+        $map = array(
+            'field1' => 'value1',
+            'field2' => 'value2',
+            'field3' => 'value2',
+            'field4' => null
+        );
+
+        $removeDuplicate = true;
+        $fields = array('field1', 'field2', 'field3', 'field4');
+        $expected = array('value1', 'value2');
+
+        $actual = ArrayUtils::extractMappedValues($map, $fields, $removeDuplicate);
+        $this->assertEquals($expected, $actual);
+
+        $removeDuplicate = true;
+        $fields = array('field1', 'field4');
+        $expected = array('value1');
+
+        $actual = ArrayUtils::extractMappedValues($map, $fields, $removeDuplicate);
+        $this->assertEquals($expected, $actual);
+
+        $removeDuplicate = false;
+        $fields = array('field1', 'field2', 'field3', 'field4');
+        $expected = array('value1', 'value2', 'value2');
+
+        $actual = ArrayUtils::extractMappedValues($map, $fields, $removeDuplicate);
+        $this->assertEquals($expected, $actual);
+    }
 }

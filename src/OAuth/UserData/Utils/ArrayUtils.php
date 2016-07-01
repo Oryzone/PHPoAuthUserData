@@ -17,7 +17,6 @@ namespace OAuth\UserData\Utils;
  */
 class ArrayUtils
 {
-
     /**
      * Utility method to convert an object to an array
      *
@@ -44,5 +43,26 @@ class ArrayUtils
     public static function removeKeys($array, $keys)
     {
         return array_diff_key($array, array_flip($keys));
+    }
+
+    /**
+     * Extracts the values from the specified fields out of the map.
+     *
+     * @param array $map              A map containing the key => value pairs.
+     * @param array $fields           An array of keys to extract.
+     * @param bool  $removeDuplicates Whether or not to remove duplicate values.
+     *
+     * @return array The extracted values.
+     */
+    public static function extractMappedValues($map, $fields, $removeDuplicates = true)
+    {
+        $values = array();
+        foreach ($fields as $field) {
+            if ($map[$field] !== null && (!$removeDuplicates || !in_array($map[$field], $values))) {
+                $values[] = $map[$field];
+            }
+        }
+
+        return $values;
     }
 }
